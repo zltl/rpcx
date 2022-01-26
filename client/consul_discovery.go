@@ -45,7 +45,7 @@ func NewConsulDiscovery(basePath, servicePath string, consulAddr []string, optio
 
 // NewConsulDiscoveryStore returns a new ConsulDiscovery with specified store.
 func NewConsulDiscoveryStore(basePath string, kv store.Store) (*ConsulDiscovery, error) {
-	if basePath[0] == '/' {
+	if strings.HasPrefix(basePath, "/") {
 		basePath = basePath[1:]
 	}
 
@@ -85,7 +85,7 @@ func NewConsulDiscoveryStore(basePath string, kv store.Store) (*ConsulDiscovery,
 
 // NewConsulDiscoveryTemplate returns a new ConsulDiscovery template.
 func NewConsulDiscoveryTemplate(basePath string, consulAddr []string, options *store.Config) (*ConsulDiscovery, error) {
-	if basePath[0] == '/' {
+	if strings.HasPrefix(basePath, "/") {
 		basePath = basePath[1:]
 	}
 
